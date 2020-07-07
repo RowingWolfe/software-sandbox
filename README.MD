@@ -8,6 +8,6 @@ Anyway, that's some notes... you might see some C++ projects, maybe even ASM? I'
 
 Slight chance of godot projects showing up here as well if I want to do something weird with a UI. (I kinda like the UI system and I could write C addons to extend it with GDnative.) So I could effectively use Godot as a UI frontend, right? With cross compiling and compatability? Eh wot? So if I do any of that stuff I will likely do the figuring out for it here.
 
-== Welcome to my software sandbox.
+# Welcome to my software sandbox.
 
 Where rights are MIT unless otherwise stated.
