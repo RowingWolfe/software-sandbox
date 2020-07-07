@@ -17,6 +17,7 @@ int main(){
 
     switch (card_name[0]){
         //Switch on card name to determine val.
+        //No so much like mama luigi used to make.
         case 'K':
         case 'k':
         case 'Q':
