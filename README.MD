@@ -1,4 +1,4 @@
-Yeah, I should write this when I get a moment. This is mostly a work project while I read some books on C and maybe try some stuff out? I look forward the the sections on interprocess communication and also will be doing some arduino stuff probably in here. I have a ton of esp8266s and 32s and arduino unos wow look at that spaghetti already.
+Yeah, I should write this when I get a moment, well I mean properly format it and all that. This is mostly a work project while I read some books on C and maybe try some stuff out? I look forward the the sections on interprocess communication and also will be doing some arduino stuff probably in here. I have a ton of esp8266s and 32s and arduino unos wow look at that spaghetti already.
 
 Started out trying to get back into C++ but realized "We must go deeper." I figure I start here and work my way through ASM for whatever processors I have on hand (I got a z80, there an ASM dev env for that? Could be an excuse to build that breadboard computer I got all those parts for.)
 
