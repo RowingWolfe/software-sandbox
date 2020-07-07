@@ -11,3 +11,5 @@ Slight chance of godot projects showing up here as well if I want to do somethin
 # Welcome to my software sandbox.
 
 Where rights are MIT unless otherwise stated.
+
+Also Goblinsky delivers all information via webhooks.
