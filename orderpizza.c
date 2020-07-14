@@ -12,7 +12,7 @@ int main(int argc, char *argv[]){
     while((ch = getopt(argc, argv, "td:")) != EOF)
         switch(ch){
             case 'd':
-                delivery = optarg;
+                delivery = optarg; //VScode is a dick about this.
             break;
             case 't':
                 thick = 1;
