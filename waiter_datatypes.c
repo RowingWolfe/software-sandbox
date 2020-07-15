@@ -26,7 +26,7 @@ int main(){
     return 0;
 }
 
-// Down here, cheeky. Thank you header declarations for allow me to be sloppy.
+// Down here, cheeky. Thank you header declarations for allowing me to be sloppy.
 float add_with_tax(float f){
     float tax_rate = 1 + tax_percent / 100.00;
     total = total + (f * tax_rate);
