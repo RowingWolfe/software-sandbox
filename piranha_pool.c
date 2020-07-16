@@ -67,6 +67,19 @@ void birthday(fish *f){ //Passing a pointer so you don't just operate on a copy.
     printf("Happy birthday %s, congrats on making it to %i! \n", (*f).name, (*f).age); //Kinda funny lookin.
 }
 
+//Now for bitfields. A way of telling the computer to use smaller amounts of memory for smaller values.
+typedef struct
+{
+    // var:1, var:4. Uses unsigned ints.
+    unsigned int first_visit:1; //A boolean value. 
+    unsigned int come_again:1;
+    unsigned int fingers_lost:4; //Can be up to 10 so I guess this would be 4 bits?
+    unsigned int shark_attack:1; 
+    unsigned int days_a_week:3; //0-6 is 3 bits if I am correct in my thinking.
+    //Wow, actually got that right. Nice.
+} survey;
+
+
 int main(){
     //Now we make a fishy in the struct. Also can't spell.
     fish snappy = {"Snappy", "Piranha", 700, 5, {"Meat", {.weight=2.2}, POUNDS}};
@@ -78,3 +91,5 @@ int main(){
 
     return 0;
 }
+
+// That was fun. New day now, new stuff to do. Moving on. 
