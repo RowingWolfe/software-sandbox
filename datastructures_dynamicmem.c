@@ -3,12 +3,18 @@
     dynamically allocating and cleaning up memory in the heap.
 
     malloc() and free() to manage heap space.
+
+    Use valgrind and debug symbols to find memory leaks
+    gcc -g adds debug info to the executable
+    valgrind -s --leak-check=full ./executable
+    This will give you information about memory left in the heap on exit.
 */
 //Coconut airlines? Oh boy... C planes...
 
 //Ohoho, linked lists this is nostalgic. 
 #include <stdio.h>
 #include <stdlib.h> //Get acacess to malloc() and free().
+#include <string.h> //To get strdup.
 
 //These NEED to be named or the compiler will freak out trying to reference an anon struct.
 typedef struct island
@@ -25,7 +31,7 @@ typedef struct island
 
 island* create(char *name){
     island *i = malloc(sizeof(island)); //Allocates space in the heap for the island to be stored.
-    i->name = name;
+    i->name = strdup(name); //Makes a defensive copy to prevent overwriting the pointer with a new one... also calls malloc so needs to be free()d
     i->opens = "08:00";
     i->closes = "19:00";
     i->next = NULL;
@@ -42,6 +48,34 @@ void display(island *start){
         printf("Name: %s \nOpen: %s-%s\n",i->name, i->opens, i->closes);
     }
     
+}
+
+void island_creator(){
+    //Reads input in a loop and adds islands to memory.
+    island *start = NULL;
+    island *i = NULL;
+    island *next = NULL;
+    char name[80];
+
+    for(; fgets(name, 80, stdin) != NULL; i = next){
+        next = create(name);
+        if(start == NULL)
+            start = next;
+        if(i != NULL)
+            i -> next = next;
+    }
+}
+
+void release(island *start){
+    //Free up the heap space we allocated.
+    //Pass the first node of the linked list then iterate through and free them from mem.
+    island *i = start;
+    island *next = NULL;
+    for(; i != NULL; i = next){ 
+        next = i -> next; //Set the next one to operate on on the following iteration.
+        free(i->name); //Because the names are allocated seperately they must be freed seperately.
+        free(i);// Free the island from the heap.
+    }
 }
 
 
@@ -65,13 +99,15 @@ int main(){
     display(&banana);
 
 
-    puts("Add an island: ");
-    char name[80]; 
-    fgets(name, 80, stdin);
-    island *p_island0 = create(name);
-    printf("Added %s\n",p_island0->name); //As it stands this will just keep overwriting the same place I think
+    // puts("Add islands: ");
+    // island_creator();
+   
     //Or crash maybe with some kinda segfault perhaps? I have to clock out for today though, 5pm. That's the rules.
     //Otherwise I will stay here all night and might not absorb anything but end up with a very full notebook.
 
+    //Through the magic of text files and discombobulation it's the next day now.
+
+    release(&banana);//If you truly love something you must set it free.
+    //Though if memory comes back I would be worried you might need an exorcist.
     return 0;
 }
