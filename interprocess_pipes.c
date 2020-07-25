@@ -1,10 +1,7 @@
 /*
     Parents and children need to communicate.
-
-    Alright this is broken at the moment. But I gotta go cook dinner or these fuckers will starve.
-    #####
-    ./interprocess_pipes.c:69:1: error: expected declaration or statement at end of input
-    69 | }
+    WITH PIPES! LEAD ONES! IT'S A FREE FOR ALL!
+    No but really. Pipes.
     #####
 */
 
@@ -49,7 +46,7 @@ int main(int argc, char *argv[]){
         error("Can't fork process.");
     }
     if (!pid){
-        if(pid == 0){
+       
             //If I recall correctly this means we are the child
             dup2(fd[1], 1); //We want to connect our output through the pipe
             close(fd[0]); //And close input.
