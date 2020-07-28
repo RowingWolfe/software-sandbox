@@ -1,10 +1,6 @@
 //A set of useful functions like signal handlers and error handlers.
-#include <stdio.h>
-#include <string.h> 
-#include <errno.h> 
-#include <unistd.h>
-#include <stdlib.h> 
-#include <signal.h>
+
+#include "useful_funcs.h"
 
 #define _GNU_SOURCE //An attempt to shut up VSCode.
 //Links signals to handlers. (Takes a signal and a handler.)
