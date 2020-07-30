@@ -12,5 +12,4 @@ Slight chance of godot projects showing up here as well if I want to do somethin
 
 Where rights are MIT unless otherwise stated.
 
-Also Goblinsky delivers all information via webhooks.
-Also Goblinsky has a drinking problem. We're working on it with him though. It's contageous!
+Also Goblinsky delivers all information via webhooks! (Sorry discord server.)
