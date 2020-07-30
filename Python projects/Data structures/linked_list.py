@@ -15,14 +15,13 @@ class SLL_Node:
     def __str__(self):
         return self.data 
 
-    def set_next_node(self, next_node):
-        self.next_node = next_node
 
 
 #Singly linked lists go one way. No arrays, arrays are slow. This is supposed to be fast.
 class SLL:
     def __init__(self, head_node):
         self.head_node = head_node
+        #Wont track the tail here, keep it slim. ( I know, how much data could a tail be? Could be a whole page though... I don't know how python deals with this stuff under the hood...)
     
     def __str__(self):
         return self.head_node.data
@@ -76,6 +75,7 @@ class SLL:
         #print("Tail node is: ", current_node)
         return current_node
 
+    #Iterate through from head until value found and return it's node, else return None
     def search(self, val):
         current_node = self.head_node
         while current_node != None:
@@ -85,6 +85,7 @@ class SLL:
             current_node = current_node.next_node
         return None
 
+    #Print each node from head to tail.
     def display_all(self):
         current_node = self.head_node
         while current_node != None:
@@ -92,6 +93,7 @@ class SLL:
             #print(current_node.next_node)
             current_node = current_node.next_node
 
+    #Return a string of all the nodes' vals.
     def stringify_nodes(self):
         node_string = ""
         current_node = self.head_node
@@ -99,6 +101,17 @@ class SLL:
             node_string += current_node.data + " "
             current_node = current_node.next_node
         return node_string
+
+    #Replace the next_node pointer for previous node to searched(by val) node's next_node.
+    def del_node(self, val):
+        previous_node = None
+        current_node = self.head_node
+        while current_node != None:      
+            if current_node.data == val:
+                previous_node.next_node = current_node.next_node
+            previous_node = current_node
+            current_node = current_node.next_node
+
 
             
         
@@ -127,12 +140,14 @@ print(hello_world.search("BANANA"))
 
 print(hello_world.stringify_nodes()) #Cats say: Well, Hello World Biscuits ! !? 
 
+hello_world.del_node("Biscuits")
+
+print(hello_world.stringify_nodes()) #Cats say: Well, Hello World ! !? 
 
 hello_world.display_all()
 # Cats say:
 # Well,
 # Hello
 # World
-# Biscuits
 # !
 # !?
