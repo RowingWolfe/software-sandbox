@@ -12,4 +12,4 @@ Slight chance of godot projects showing up here as well if I want to do somethin
 
 Where rights are MIT unless otherwise stated.
 
-Also Goblinsky delivers all information via webhooks! (Sorry discord server.)
+Also Goblinsky delivers all information via webhooks! ##### (Sorry discord server.)
