@@ -4,6 +4,10 @@
 #I think I overthrought the last one and was thinking of a BST? Overcomplicating it.
 #Though I will be adding a BST to these data structs.
 
+#Tree traversal algorithms
+import tree_traversal
+
+
 #The humble node, initialized with <data> to be stored in it as an arg, left and right node = None
 #EG; new_node = Node("foo")
 class Node:
@@ -11,6 +15,7 @@ class Node:
         self.data = data
         self.left = None
         self.right = None
+
 
     #Inserts a node into the tree after searching to find it a location based on it's data.
     #Sorting lower values left and higher values right.
@@ -48,9 +53,12 @@ class Node:
             #Then traverse down the right side.
             self.right.print_tree()
 
-#Uncertain if I should add the traversal algorithms in a seperate file... probably, right?
-#TODO: When time allows, Create an algorithm folder, write classes for each data structure type and add methods for
-#traversing/operating on the data structures. Like tree traversal algos?
-
-
     
+root = Node(27)
+root.insert(14)
+root.insert(35)
+root.insert(10)
+root.insert(19)
+root.insert(31)
+root.insert(42)
+print(tree_traversal.in_order_traversal(root))
