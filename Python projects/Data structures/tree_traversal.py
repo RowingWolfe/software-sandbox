@@ -5,12 +5,16 @@
 def in_order_traversal(tree_root):
     nodes_in_order = []
     if tree_root:
+        #First down the left side.
         nodes_in_order = in_order_traversal(tree_root.left)
+        #Then the root
         nodes_in_order.append(tree_root.data)
+        #Then down the right side.
         nodes_in_order = nodes_in_order + in_order_traversal(tree_root.right)
+
     return nodes_in_order
 
 
-
+#TODO: Pre-order Traversal.
     
-
+#TODO: Post-order Traversal.
