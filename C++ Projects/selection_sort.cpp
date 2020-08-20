@@ -63,6 +63,9 @@ int main(){
         //Not sure if checking the index is the same would be redundant here so we'll skip it for now.
         //We swap our starting_idx value with our smallest_idx value.
         std::swap(sort_me[starting_idx], sort_me[smallest_idx]);
+        
+        //Uncomment below to show every swap.
+        //print_arr(sort_me, arr_len); 
     }
 
 
