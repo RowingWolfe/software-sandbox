@@ -5,6 +5,16 @@
 
     Compiled with
     g++ -g -std=c++17 ./selection_sort.cpp -o selection_sort
+
+    Could be split into it's own function, as C++ is quirky in that if you pass an array
+    in a function(unlike in C) it will allow you to operate directly on the array. (Whereas
+    in C it will just decay to a pointer to the first index and kinda be a pain in the ass...) but that's
+    rather redundant as in the <algorithm< header we also have std::sort which does exactly what
+    We're doing here... only probably more complex and less error prone. (I have not looked at it 
+    as of this writing.)
+
+    The syntax for that is
+            std::sort(std::begin(sort_me), std::end(sort_me));
 */
 
 #include <algorithm> //Has std::swap which I think is self-explainatory in the code.
