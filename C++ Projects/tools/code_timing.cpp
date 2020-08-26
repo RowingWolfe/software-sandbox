@@ -18,6 +18,7 @@ another editor. If only clion was free...
 */
 
 #include <chrono>
+#include <iostream>
 
 //A timer that starts on instantiation, can be used to time code execution.
 class Timer
@@ -50,13 +51,16 @@ public:
 };
 
 //Example use.
-/*
+
 int main() {
     Timer t;
     std::cout << "Hello, World! \n";
     std::cout << "Executed in: " << t.elapsed() << ". \n";
     return 0;
 }
-*/
+
 
 //On my machine for some reason it outputs Executed in: 2.9759e-05. (YMMV)
+// Even directly copied from someone else's code I get the same weird output compared to theirs.
+// So yeah. May not be as useful as I had hoped. However there are likely libraries with this functionality
+// This can be treated more as a proof of concept I suppose?
