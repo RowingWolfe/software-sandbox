@@ -19,12 +19,16 @@ another editor. If only clion was free...
 
 #include <chrono>
 
+//A timer that starts on instantiation, can be used to time code execution.
 class Timer
 {
 private:
     //Type aliases to make accessing the nested type easier.
     using clock_t = std::chrono::high_resolution_clock;
     using second_t = std::chrono::duration<double, std::ratio<1> >;
+
+    //Current time.
+    std::chrono::time_point<clock_t> m_beg;
 
 public:
     Timer(): m_beg(clock_t::now())
@@ -39,8 +43,20 @@ public:
     }
 
     //Returns the time elapsed as a const double.
-    double elapsed() const{
+    [[nodiscard]] double elapsed() const{
         return std::chrono::duration_cast<second_t>(clock_t::now() - m_beg).count();
     }
-    
+
+};
+
+//Example use.
+/*
+int main() {
+    Timer t;
+    std::cout << "Hello, World! \n";
+    std::cout << "Executed in: " << t.elapsed() << ". \n";
+    return 0;
 }
+*/
+
+//On my machine for some reason it outputs Executed in: 2.9759e-05. (YMMV)
