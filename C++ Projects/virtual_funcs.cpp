@@ -5,6 +5,7 @@
 
     virtual
     override
+    
 */
 
 //I'll need some IO
@@ -51,7 +52,10 @@ class Derived_Again : public Base{
     std::string print_class_name() override { return "I am Derived_Again \n"; }
 };
 
-//Tell class, takes a Base object.
+//Tell class, takes a Base object by reference to avoid slicing.
+//Slicing is when you assign a derived obj to a base obj, it will slice off derived functionality
+//leaving only the base. Which would happen if passed by value here.
+//In which case the output would just be from the Base class rather than the derived.
 std::string tell_class(Base &obj){
     return obj.print_class_name();
 }
