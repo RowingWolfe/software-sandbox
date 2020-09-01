@@ -45,6 +45,11 @@ class Derived_Again : public Base{
     std::string print_class_name() const { return "I am Derived_Again \n"; }
 };
 
+//Tell class, takes a Base object.
+std::string tell_class(Base &obj){
+    return obj.print_class_name();
+}
+
 int main(){
     //First an instance of Base
     Base base;
@@ -88,6 +93,11 @@ int main(){
         //Which I am certain is useful in ways I have not really considered as of yet since my brain is tired.
         std::cout << my_base_ref_arr[i]->print_class_name() << std::endl;
     }
+
+    //Or it could be useful in this situation... o_o
+    std::cout << "======= tell_class() ======== \n";
+    std::cout << tell_class(base_d);
+    std::cout << tell_class(base_d_again);
 
 
     return 0;
