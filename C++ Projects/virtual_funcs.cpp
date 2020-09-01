@@ -1,7 +1,10 @@
 /* 
 
-    An attempt at understanding virtual funcs 
+    An attempt at understanding virtual funcs and the concepts of polymorphism in C++.
+    "What I Cannot Create, I Do Not Understand” - Richard Feynman
 
+    virtual
+    override
 */
 
 //I'll need some IO
@@ -16,8 +19,9 @@ class Base{
     public:
     std::string m_class_name{"Base"};
 
-    //Now a virtual function that can be overriden by derived versions based on type, etc.
-    virtual std::string print_class_name() const { return "I am Base \n"; }
+    //Now a virtual function that can be overriden by derived versions based on type
+    //This adds a hidden *__vptr to a v-table which is a lookup for override functions.
+    virtual std::string print_class_name() { return "I am Base \n"; }
 };
 
 
@@ -30,7 +34,9 @@ class Derived : public Base{
     std::string m_class_name{"Derived"};
 
     //Now an override for the virtual function
-    std::string print_class_name() const { return "I am Derived \n"; }
+    //Note: using override for all override funcs is a best practice, though not
+    //Required unless you are using a different return type.
+    std::string print_class_name() override { return "I am Derived \n"; }
 };
 
 //Once more for effect!
@@ -41,8 +47,8 @@ class Derived_Again : public Base{
     public:
     std::string m_class_name{"Derived_Again"};
 
-    //Another overload!
-    std::string print_class_name() const { return "I am Derived_Again \n"; }
+    //Another override! (Not overload, idiot. Somewhat similar but across classes.)
+    std::string print_class_name() override { return "I am Derived_Again \n"; }
 };
 
 //Tell class, takes a Base object.
