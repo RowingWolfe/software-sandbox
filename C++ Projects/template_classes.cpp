@@ -6,6 +6,10 @@
 #include <cassert>
 #include <iostream>
 
+//Declare this as a template.
+//Can also have :
+// template <class T, int len> to have a class get created for each size of array.
+// passing len in to m_length.
 template <class T>
 class Array{
     private:
